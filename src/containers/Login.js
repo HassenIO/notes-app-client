@@ -34,6 +34,7 @@ export default class Login extends Component {
             this.props.history.push('/');
         } catch (e) {
             alert(e.message);
+            this.setState({ isLoading: false });
         }
     };
 
@@ -43,20 +44,11 @@ export default class Login extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <FormGroup controlId="email" bsSize="large">
                         <ControlLabel>Email</ControlLabel>
-                        <FormControl
-                            autoFocus
-                            type="email"
-                            value={this.state.email}
-                            onChange={this.handleChange}
-                        />
+                        <FormControl autoFocus type="email" value={this.state.email} onChange={this.handleChange} />
                     </FormGroup>
                     <FormGroup controlId="password" bsSize="large">
                         <ControlLabel>Password</ControlLabel>
-                        <FormControl
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                            type="password"
-                        />
+                        <FormControl value={this.state.password} onChange={this.handleChange} type="password" />
                     </FormGroup>
                     <LoaderButton
                         block
